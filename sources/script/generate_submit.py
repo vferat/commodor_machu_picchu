@@ -9,7 +9,7 @@ def _generate_submit(data, output_dir, template_env):
     form = template.render(data)
     # Écrire le résultat dans un fichier de sortie
     output_name = 'submit.yml.erb'
-    output_path = os.path.join(output_dir, data['application']['name'], output_name)
+    output_path = os.path.join(output_dir, output_name)
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
 
     with open(output_path, "w", encoding="utf-8") as f:

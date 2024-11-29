@@ -1,8 +1,0 @@
-#!/bin/bash
-
-apptainer exec docker://docker/whalesay cowsay \
-            <%= context.input %> \
-            <%= context.output %> \
-            -w <%= context.workdir %> \
-  
-  

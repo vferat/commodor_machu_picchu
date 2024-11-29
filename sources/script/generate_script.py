@@ -9,7 +9,7 @@ def _generate_script(data, output_dir, template_env):
     manifest = template.render(data)
     # Écrire le résultat dans un fichier de sortie
     output_name = 'script.sh.erb'
-    output_path = os.path.join(output_dir, data['application']['name'], 'template', output_name)
+    output_path = os.path.join(output_dir, 'template', output_name)
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
 
     with open(output_path, "w", encoding="utf-8") as f:
