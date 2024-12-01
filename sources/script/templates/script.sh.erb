@@ -1,6 +1,10 @@
 #!/bin/bash
 
 apptainer exec {{application.app.image}} {{application.app.cmd}} \
+    {%- if application.apptainer.fakeroot %}
+        --fakeroot \
+    {%- endif %}
+        --bind /srv/beegfs/scratch/users/${USER:0:1}/${USER}:/srv/beegfs/scratch/users/${USER:0:1}/${USER} \
     {%- for appsetting_name, appsetting_value in application.appsettings.items() %}
         {%- if "command-line-flag" in application.appsettings[appsetting_name].keys() %}
             {{application.appsettings[appsetting_name]["command-line-flag"]}} <%= context.{{appsetting_name}} %> \
