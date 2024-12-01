@@ -1,8 +1,9 @@
 #!/bin/bash
 
-apptainer exec docker://docker/whalesay cowsay \
+apptainer exec  \
         --fakeroot \
         --bind /srv/beegfs/scratch/users/${USER:0:1}/${USER}:/srv/beegfs/scratch/users/${USER:0:1}/${USER} \
+        docker://docker/whalesay cowsay \
             <%= context.input %> \
             <%= context.output %> \
             -w <%= context.workdir %> \
