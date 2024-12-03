@@ -16,6 +16,7 @@ form:
 attributes:
 
 {%- for argument_name, argument_value in application.app.arguments.items() %}
+{%- if argument_value.visible %}
   {{ argument_name }}:
   {%- for subargument_name, subargument_value in application.app.arguments[argument_name].items() %}
   {%- if subargument_name in ["widget", "label", "help"] %}
@@ -23,4 +24,7 @@ attributes:
   {%- endif %}
   {%- endfor %}
 {%- endfor %}
+{%- else %}
+  {{ argument_name }}: {{argument_value.value}}
+{%- endif %}
 
