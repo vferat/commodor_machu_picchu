@@ -5,6 +5,7 @@ form:
 {%- if option_value %}
   - {{ option_name }}
 {%- endif %}
+{%- endfor %}
 {%- for argument_name, argument_value in application.app.arguments.items() %}
 {%- if argument_value.visible %}
   - {{ argument_name }}
