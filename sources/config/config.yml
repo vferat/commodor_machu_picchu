@@ -14,9 +14,9 @@ application:
     # image or module
     type: image
     # image path or module
-    image:  docker://docker/whalesay
+    image:  docker://nipreps/fmriprep:24.1.1
     # cmd to launch in the container (ruby format)
-    cmd: "cowsay"
+    cmd: "fmriprep"
     arguments:
       # argument for the app
       bids_dir:
