@@ -1,6 +1,11 @@
 cluster: "baobab"
 
 form:
+  - bc_account
+  - bc_queue
+  - bc_num_hours
+  - bc_num_slots
+  - bc_email_on_started
   - input
   - output
   - workdir
@@ -19,18 +24,3 @@ attributes:
     widget: path_selector
     label: Working Directory
     help: Select your project directory.
-  estimated_run_time:
-    label: estimated_run_time
-    help: estimated_run_time
-  cpus:
-    label: cpus
-    help: cpus
-  gpus:
-    label: gpus
-    help: gpus
-  ram:
-    label: ram
-    help: ram
-  nbtasks:
-    label: nbtasks
-    help: nbtasks
