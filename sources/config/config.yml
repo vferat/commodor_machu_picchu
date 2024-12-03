@@ -15,34 +15,38 @@ application:
     type: image
     # image path or module
     image:  docker://docker/whalesay
-    # cmd to launch in the container (empty if default)
-    cmd: cowsay 
-    # args (ruby format)
-    args: "#{input}"
-  appsettings:
-    # argument for the app
-    input:
-      visible: True
-      widget: "text_field"
-      label: "Input File Name"
-      help: "Where the data is coming from (relative to the working directory field above)." 
-    output:
-      visible: True
-      widget: "text_field"
-      label: "Output File Name"
-      help: "Where the results will be going to (relative to the working directory field above)."
-    # working directory to launch the app
-    workdir:
-      widget: "path_selector"
-      show_hidden: true
-      show_files: false
-      command-line-flag: "-w"
-      visible: True
-      label: "Working Directory"
-      help: "Select your project directory."
+    # cmd to launch in the container (ruby format)
+    cmd: "cowsay #{input}"
+    arguments:
+      # argument for the app
+      input:
+        visible: True
+        widget: "text_field"
+        label: "Input File Name"
+        help: "Where the data is coming from (relative to the working directory field above)." 
+      output:
+        visible: True
+        widget: "text_field"
+        label: "Output File Name"
+        help: "Where the results will be going to (relative to the working directory field above)."
+      # working directory to launch the app
+      workdir:
+        widget: "path_selector"
+        show_hidden: true
+        show_files: false
+        command-line-flag: "-w"
+        visible: True
+        label: "Working Directory"
+        help: "Select your project directory."
   apptainer:
       fakeroot: True
-  jobspec:
+  slurm:
+      bc_account: True
+      bc_queue: True
+      bc_num_hours: True
+      bc_num_slots: True
+      bc_email_on_started: True
+  resources:
     # s
     estimated_run_time:
       value: 30

@@ -1,33 +1,24 @@
 cluster: "baobab"
 
-form: 
-{%- for appsetting_name, appsetting_value in application.appsettings.items() %}
-{%- if appsetting_value.visible %}
-  - {{ appsetting_name }}
+form:
+{%- for option_name, option_value in application.slurm.items() %}
+{%- if option_value %}
+  - {{ option_name }}
 {%- endif %}
-{%- endfor %}
-{%- for jobspec_name, jobspec_value in application.jobspec.items() %}
-{%- if jobspec_value.visible %}
-  - {{ jobspec_name }}
+{%- for argument_name, argument_value in application.app.arguments.items() %}
+{%- if argument_value.visible %}
+  - {{ argument_name }}
 {%- endif %}
 {%- endfor %}
 
 
 attributes:
 
-{%- for appsetting_name, appsetting_value in application.appsettings.items() %}
-  {{ appsetting_name }}:
-  {%- for subappsetting_name, subappsetting_value in application.appsettings[appsetting_name].items() %}
-  {%- if subappsetting_name in ["widget", "label", "help"] %}
-    {{ subappsetting_name }}: {{ subappsetting_value }}
-  {%- endif %}
-  {%- endfor %}
-{%- endfor %}
-{%- for jobspec_name, jobspec_value in application.jobspec.items() %}
-  {{ jobspec_name }}:
-  {%- for subjobspec_name, subjobspec_value in application.jobspec[jobspec_name].items() %}
-  {%- if subjobspec_name in ["widget", "label", "help"] %}
-    {{ subjobspec_name }}: {{ subjobspec_value }}
+{%- for argument_name, argument_value in application.app.arguments.items() %}
+  {{ argument_name }}:
+  {%- for subargument_name, subargument_value in application.app.arguments[argument_name].items() %}
+  {%- if subargument_name in ["widget", "label", "help"] %}
+    {{ subargument_name }}: {{ subargument_value }}
   {%- endif %}
   {%- endfor %}
 {%- endfor %}
