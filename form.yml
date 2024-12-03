@@ -18,7 +18,7 @@ attributes:
     widget: path_selector
     label: Working Directory
     help: The output path for the outcomes of preprocessing and visual reports.
-  analysis_level:
+  analysis_level: participant
   participant_label:
     widget: text_field
     label: participant_label
