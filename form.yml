@@ -1,10 +1,8 @@
 cluster: "baobab"
 
 form:
-  - bc_account
-  - bc_queue
-  - bc_num_hours
-  - bc_num_slots
+  - auto_accounts
+  - auto_queues
   - bc_email_on_started
   - input
   - output
