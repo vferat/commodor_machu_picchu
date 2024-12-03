@@ -31,10 +31,11 @@ application:
         visible: True
         show_hidden: False
         show_files: False
+        value: "~/scratch" # default, can be overwritten if visible: True
         label: "Working Directory"
         help: "The output path for the outcomes of preprocessing and visual reports."
       analysis_level:
-        visible: False
+        visible: False # use value if visible: False
         value: "participant"
       participant_label:
         widget: "text_field"
@@ -42,6 +43,15 @@ application:
         command-line-flag: "--participant-label"
         label: "participant_label"
         help: "A space delimited list of participant identifiers or a single identifier."
+        # required
+        # help 
+        # pattern 
+        # min 
+        # max 
+        # step 
+        # options 
+        # cacheable 
+        # display 
   apptainer:
       fakeroot: True
   slurm:
@@ -51,33 +61,4 @@ application:
       bc_num_slots: False
       bc_email_on_started: True
   resources:
-    # s
-    estimated_run_time:
-      value: 30
-      visible: False
-      label: "estimated_run_time"
-      help: "estimated_run_time"
-    # number of cores
-    cpus:
-      value: 1
-      visible: False
-      label: "cpus"
-      help: "cpus"
-    # ex: ampere:2,VramPerGpu:10G
-    gpus:
-      value: 0
-      visible: False
-      label: "gpus"
-      help: "gpus"
-    # RAM in GB
-    ram:
-      value: 1
-      visible: False
-      label: "ram"
-      help: "ram"
-    # parallel if more than 1
-    nbtasks:
-      value: 1
-      visible: False
-      label: "nbtasks"
-      help: "nbtasks"
+    wall_time: 3600

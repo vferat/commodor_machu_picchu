@@ -1,26 +1,14 @@
----
-<%# Takes user input from form.yml and sets variables for the script arguments. %>
-<%-
-  ppn = num_tasks_per_node.blank? ? 1 : 1
-  nodes = num_nodes.blank? ? 1 : 1
-  mem = gbs_of_mem.blank? ? (2*ppn) : 1
-  base = work_dir.blank? ? ENV['HOME'] : work_dir
-
-  slurm_args = [ "--nodes", "#{nodes}", "--ntasks-per-node", "#{ppn}", "--mem", "#{mem}G",]
-
-  if defined?(reservation) && reservation != "None"
-    slurm_args = slurm_args + [ "--reservation", reservation ]
-  end
-
--%>
-
 batch_connect:
   template: "basic"
-  conn_params:
-    - working_path  # necessary for the destination URL so the user can view their working directory through ood. 
 script:
-  native:
-  <%- slurm_args.each do |arg| %>
-    - "<%= arg %>"
-  <%- end %>
+{%- for resource_name, resource_value in application.resources.items() %}
+  - {{ resource_name }}: {{ resource_value }}
+{%- endfor %}
+{%- for item_name, item_value in application.slurm.items() %}
+{%- if item_name == "auto_accounts" %}
+  - queue_name: <%= queue_name %>
+{%- elif item_name == "bc_queue" %}
+  - bc_queue: <%= bc_queue %>
+{%- endif %}
+{%- endfor %}
 

@@ -17,7 +17,7 @@ attributes:
 {%- if argument_value.visible %}
   {{ argument_name }}:
   {%- for subargument_name, subargument_value in application.app.arguments[argument_name].items() %}
-  {%- if subargument_name in ["widget", "label", "help"] %}
+  {%- if subargument_name in ["widget", "label", "help", "value"] %}
     {{ subargument_name }}: "{{ subargument_value }}"
   {%- endif %}
   {%- endfor %}
