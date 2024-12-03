@@ -19,25 +19,29 @@ application:
     cmd: "cowsay"
     arguments:
       # argument for the app
-      input:
-        visible: True
-        widget: "text_field"
-        label: "Input File Name"
-        help: "Where the data is coming from (relative to the working directory field above)." 
-      output:
-        visible: True
-        widget: "text_field"
-        label: "Output File Name"
-        help: "Where the results will be going to (relative to the working directory field above)."
-      # working directory to launch the app
-      workdir:
+      bids_dir:
         widget: "path_selector"
-        show_hidden: true
+        show_hidden: False
         show_files: false
-        command-line-flag: "-w"
+        visible: True
+        label: "bids_dir"
+        help: "The root folder of a BIDS valid dataset."
+      output_dir:
+        widget: "path_selector"
+        show_hidden: False
+        show_files: false
         visible: True
         label: "Working Directory"
-        help: "Select your project directory."
+        help: "The output path for the outcomes of preprocessing and visual reports."
+      analysis_level:
+        visible: False
+        value: "participant"
+      participant_label:
+        visible: True
+        widget: "text_field"
+        command-line-flag: "--participant-label"
+        label: "participant_label"
+        help: "A space delimited list of participant identifiers or a single identifier."
   apptainer:
       fakeroot: True
   slurm:
