@@ -5,11 +5,11 @@
 
 application:
   # My app name
-  name: Commodor_MachuPicchu
+  name: fMRIprep
   # My app version (x.y.z)
   version: 
   # short description
-  description: "A test application."
+  description: "fMRIprep."
   app:
     # image or module
     type: image
@@ -22,14 +22,14 @@ application:
       bids_dir:
         widget: "path_selector"
         show_hidden: False
-        show_files: false
+        show_files: False
         visible: True
         label: "bids_dir"
         help: "The root folder of a BIDS valid dataset."
       output_dir:
         widget: "path_selector"
         show_hidden: False
-        show_files: false
+        show_files: False
         visible: True
         label: "Working Directory"
         help: "The output path for the outcomes of preprocessing and visual reports."
