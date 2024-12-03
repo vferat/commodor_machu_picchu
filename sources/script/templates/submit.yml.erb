@@ -2,13 +2,13 @@ batch_connect:
   template: "basic"
 script:
 {%- for resource_name, resource_value in application.resources.items() %}
-  - {{ resource_name }}: {{ resource_value }}
+  {{ resource_name }}: {{ resource_value }}
 {%- endfor %}
 {%- for item_name, item_value in application.slurm.items() %}
 {%- if item_name == "auto_accounts" %}
-  - queue_name: <%= queue_name %>
+  queue_name: <%= queue_name %>
 {%- elif item_name == "auto_queues" %}
-  - bc_queue: <%= bc_queue %>
+  bc_queue: <%= bc_queue %>
 {%- endif %}
 {%- endfor %}
 
