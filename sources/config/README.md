@@ -5,3 +5,6 @@ The config directory **must** contains:
 -  `icon.png` for your app
 
 Refer to `config.yaml.example` to build your config.yaml 
+
+
+submit: https://osc.github.io/ood-documentation/latest/reference/files/submit-yml/script.html#submit-script-options
