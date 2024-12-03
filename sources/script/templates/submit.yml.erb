@@ -7,7 +7,7 @@ script:
 {%- for item_name, item_value in application.slurm.items() %}
 {%- if item_name == "auto_accounts" %}
   - queue_name: <%= queue_name %>
-{%- elif item_name == "bc_queue" %}
+{%- elif item_name == "auto_queues" %}
   - bc_queue: <%= bc_queue %>
 {%- endif %}
 {%- endfor %}

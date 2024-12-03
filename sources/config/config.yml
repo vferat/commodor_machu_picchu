@@ -57,8 +57,5 @@ application:
   slurm:
       auto_accounts: True
       auto_queues: True
-      auto_primary_group: False
-      bc_num_slots: False
-      bc_email_on_started: True
   resources:
     wall_time: 3600
