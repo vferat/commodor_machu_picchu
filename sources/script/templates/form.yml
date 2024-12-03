@@ -23,8 +23,8 @@ attributes:
     {{ subargument_name }}: {{ subargument_value }}
   {%- endif %}
   {%- endfor %}
-{%- endfor %}
 {%- else %}
   {{ argument_name }}: {{argument_value.value}}
 {%- endif %}
+{%- endfor %}
 
