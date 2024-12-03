@@ -16,7 +16,7 @@ application:
     # image path or module
     image:  docker://docker/whalesay
     # cmd to launch in the container (ruby format)
-    cmd: "cowsay #{input}"
+    cmd: "cowsay"
     arguments:
       # argument for the app
       input:
