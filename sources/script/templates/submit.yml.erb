@@ -8,10 +8,10 @@ script:
 {%- elif item_name == "queue_name" %}
   queue_name: <%= auto_queues %>
 {%- else %}
- {{ item_name }}: <%= {{ item_name }}%>
+  {{ item_name }}: <%= {{ item_name }}%>
 {%- endif %}
 {%- else %}
- {{ item_name }}: {{ item_values.value }}
+  {{ item_name }}: {{ item_values.value }}
 {%- endif %}
 {%- endfor %}
 
