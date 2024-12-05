@@ -53,15 +53,10 @@ application:
         # cacheable 
         # display 
   apptainer:
-      fakeroot: True
+      args: "--fakeroot"
   slurm: # either visible or non visible + value
-      accounting_id:
-        visible: True
-      queue_name:
-        visible: True
-      wall_time:
-        visible: False
-        value: 3600
-      mem_per_cpu:
-        visible: False
-        value: 8G
+    args: "--mem-per-cpu 8G --time 60"
+    widgets:
+      - accounting_id
+      - queue_name
+

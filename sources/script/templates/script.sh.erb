@@ -1,8 +1,8 @@
 #!/bin/bash
 
 apptainer exec  \
-    {%- if application.apptainer.fakeroot %}
-        --fakeroot \
+    {%- if application.apptainer.args %}
+        application.apptainer.args \
     {%- endif %}
         --bind /srv/beegfs/scratch/users/${USER:0:1}/${USER}:/srv/beegfs/scratch/users/${USER:0:1}/${USER} \
         {{application.app.image}} {{application.app.cmd}} \
