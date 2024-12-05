@@ -22,7 +22,7 @@ script:
 {%- if item_values.visible %}
     ["--mem-per-cpu", "<%= {{ item_name }}%>"]
 {%- else %}
-    ["--mem-per-cpu", "<%= {{ item_values.value  }}%>"]
+    ["--mem-per-cpu", "{{ item_values.value }}"]
 {%- endif %}
 {%- endif %}
 {%- endfor %}
