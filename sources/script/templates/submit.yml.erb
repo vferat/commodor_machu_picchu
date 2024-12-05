@@ -12,7 +12,7 @@ script:
 {%- endfor %}
   native:
 {%- if application.slurm.args %}
-     [{{ application.slurm.args }}]
+    {{ application.slurm.args }}
 {%- endif %}
 
 
