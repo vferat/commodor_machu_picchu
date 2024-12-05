@@ -7,13 +7,13 @@ apptainer exec  \
         --bind /srv/beegfs/scratch/users/${USER:0:1}/${USER}:/srv/beegfs/scratch/users/${USER:0:1}/${USER} \
         {{application.app.image}} {{application.app.cmd}} \
     {%- for argument_name, argument_value in application.app.arguments.items() %}
-        {%- if "command-line-flag" in application.app.arguments[argument_name].keys() %}
-            {{application.app.arguments[argument_name]["command-line-flag"]}} <%= context.{{argument_name}} %> \
+        {%- if not "command-line-flag" in application.app.arguments[argument_name].keys() %}
+            <%= context.{{argument_name}} %> \
         {%- endif %}
     {%- endfor %}
     {%- for argument_name, argument_value in application.app.arguments.items() %}
-        {%- if not "command-line-flag" in application.app.arguments[argument_name].keys() %}
-            <%= context.{{argument_name}} %> \
+        {%- if "command-line-flag" in application.app.arguments[argument_name].keys() %}
+            {{application.app.arguments[argument_name]["command-line-flag"]}} <%= context.{{argument_name}} %> \
         {%- endif %}
     {%- endfor %}
   
