@@ -3,7 +3,7 @@ batch_connect:
 script:
 {%- for item_name in application.slurm.items() %}
 # Visible
-{%- if item_value.visible %}
+{%- if item_name.visible %}
 {%- if item_name == "accounting_id" %}
   accounting_id: <%= auto_accounts %>
 {%- elif item_name == "queue_name" %}
