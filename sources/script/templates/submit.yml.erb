@@ -2,6 +2,7 @@ batch_connect:
   template: "basic"
 script:
 {%- for item_name, item_values in application.slurm.items() %}
+{%- if item_name in ["accounting_id", "queue_name", "wall_time"] %}
 {%- if item_values.visible %}
 {%- if item_name == "accounting_id" %}
   accounting_id: <%= auto_accounts %>
@@ -12,6 +13,17 @@ script:
 {%- endif %}
 {%- else %}
   {{ item_name }}: {{ item_values.value }}
+{%- endif %}
+{%- endfor %}
+# native
+  native:
+{%- for item_name, item_values in application.slurm.items() %}
+{%- if item_name in ["mem_per_cpu"] %}
+{%- if item_values.visible %}
+    ["--mem-per-cpu", "<%= {{ item_name }}%>"]
+{%- else %}
+    ["--mem-per-cpu", "<%= {{ item_values.value  }}%>"]
+{%- endif %}
 {%- endif %}
 {%- endfor %}
 

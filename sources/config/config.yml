@@ -62,3 +62,6 @@ application:
       wall_time:
         visible: False
         value: 3600
+      mem_per_cpu:
+        visible: False
+        value: 8G
