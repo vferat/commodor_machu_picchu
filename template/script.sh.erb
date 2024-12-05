@@ -1,7 +1,7 @@
 #!/bin/bash
 
 apptainer exec  \
-        application.apptainer.args \
+        --fakeroot \
         --bind /srv/beegfs/scratch/users/${USER:0:1}/${USER}:/srv/beegfs/scratch/users/${USER:0:1}/${USER} \
         docker://nipreps/fmriprep:24.1.1 fmriprep \
             --participant-label <%= context.participant_label %> \
