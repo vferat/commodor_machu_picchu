@@ -14,8 +14,8 @@ script:
 {%- else %}
   {{ item_name }}: {{ item_values.value }}
 {%- endif %}
+{%- endif %}
 {%- endfor %}
-# native
   native:
 {%- for item_name, item_values in application.slurm.items() %}
 {%- if item_name in ["mem_per_cpu"] %}
