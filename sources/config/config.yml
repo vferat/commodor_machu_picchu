@@ -57,5 +57,4 @@ application:
   slurm:
       auto_accounts: True
       auto_queues: True
-  resources:
-    wall_time: 3600 # TODO handle native slurm -> widgets, resources, native
+      wall_time: 3600 # TODO handle native slurm -> widgets, resources, native

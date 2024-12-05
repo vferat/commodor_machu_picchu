@@ -9,6 +9,9 @@ script:
   accounting_id: <%= auto_accounts %>
 {%- elif item_name == "auto_queues" %}
   queue_name: <%= auto_queues %>
+{%- else %}
+ {{ item_name }}: {{ item_value }}
 {%- endif %}
 {%- endfor %}
+
 
