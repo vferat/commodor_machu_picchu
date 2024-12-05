@@ -1,7 +1,10 @@
 batch_connect:
   template: "basic"
 script:
-  accounting_id: <%= auto_accounts %>
-  queue_name: <%= auto_queues %>
- wall_time: 3600
+# Visible
+ ('accounting_id', {'visible': True}): 
+# Visible
+ ('queue_name', {'visible': True}): 
+# Visible
+ ('wall_time', {'visible': False, 'value': 3600}): 
 
