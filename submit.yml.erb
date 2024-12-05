@@ -3,7 +3,7 @@ batch_connect:
 script:
   accounting_id: <%= auto_accounts %>
   queue_name: <%= auto_queues %>
-  wall_time: 3600
   native:
-    ["--mem-per-cpu", "8G"]
+     --mem-per-cpu 8G --time 60
+
 
