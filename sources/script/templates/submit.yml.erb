@@ -1,13 +1,19 @@
 batch_connect:
   template: "basic"
 script:
-{%- for item_name, item_value in application.slurm.items() %}
-{%- if item_name == "auto_accounts" %}
+{%- for item_name in application.slurm.items() %}
+# Visible
+{%- if item_value.visible %}
+{%- if item_name == "accounting_id" %}
   accounting_id: <%= auto_accounts %>
-{%- elif item_name == "auto_queues" %}
+{%- elif item_name == "queue_name" %}
   queue_name: <%= auto_queues %>
 {%- else %}
- {{ item_name }}: {{ item_value }}
+ {{ item_name }}: <%= {{ item_name }}%>
+{%- endif %}
+# Non-visible
+{%- else %}
+ {{ item_name }}: {{ item_name.value }}
 {%- endif %}
 {%- endfor %}
 

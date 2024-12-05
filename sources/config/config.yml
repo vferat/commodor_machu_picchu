@@ -54,7 +54,11 @@ application:
         # display 
   apptainer:
       fakeroot: True
-  slurm:
-      auto_accounts: True
-      auto_queues: True
-      wall_time: 3600 # TODO handle native slurm -> widgets, resources, native
+  slurm: # either visible or non visible + value
+      accounting_id:
+        visible: True
+      queue_name:
+        visible: True
+      wall_time:
+        visible: False
+        value: 3600

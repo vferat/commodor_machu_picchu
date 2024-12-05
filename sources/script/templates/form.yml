@@ -2,8 +2,14 @@ cluster: "baobab"
 
 form:
 {%- for option_name, option_value in application.slurm.items() %}
-{%- if option_value %}
+{%- if option_value.visible %}
+  {%- if option_name == "accounting_id" %}
+  - auto_accounts
+  {%- elif option_name == "queue_name" %}
+  - auto_queues
+  {%- else %}
   - {{ option_name }}
+  {%- endif %}
 {%- endif %}
 {%- endfor %}
 {%- for argument_name, argument_value in application.app.arguments.items() %}
