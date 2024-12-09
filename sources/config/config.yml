@@ -55,8 +55,6 @@ application:
   apptainer:
       args: "--fakeroot"
   slurm: # either visible or non visible + value
-    args: ["--mem-per-cpu", "8G", "--time",  "60"]
+    args: ["--mem-per-cpu", "8G", "--time",  "1-00:00:00 ", "--partition", "public-cpu", "--cpus-per-task", "8"]
     widgets:
       - accounting_id
-      - queue_name
-
