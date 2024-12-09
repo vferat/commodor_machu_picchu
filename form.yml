@@ -2,7 +2,6 @@ cluster: "baobab"
 
 form:
   - auto_accounts
-  - auto_queues
   - bids_dir
   - output_dir
   - analysis_level
