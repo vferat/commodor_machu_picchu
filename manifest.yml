@@ -1,7 +1,7 @@
 ---
 name: fMRIprep
-category: Interactive Apps
-subcategory: Servers
+category: Non-Interactive Apps
+subcategory: Apptainer
 role: batch_connect
 description: |
   fMRIprep.
