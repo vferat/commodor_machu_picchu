@@ -2,6 +2,7 @@ batch_connect:
   template: "basic"
 script:
   accounting_id: <%= auto_accounts %>
+  work_dir: ~/
   native:
     ['--mem-per-cpu', '3G', '--time', '15', '--partition', 'debug-cpu', '--cpus-per-task', '1']
 
