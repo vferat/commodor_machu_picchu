@@ -55,6 +55,6 @@ application:
   apptainer:
       args: "--fakeroot"
   slurm: # either visible or non visible + value
-    args: ["--mem-per-cpu", "3G", "--time",  "15", "--partition", "debug-cpu", "--cpus-per-task", "1", "--workdir", "~"]
+    args: ["--mem-per-cpu", "3G", "--time",  "15", "--partition", "debug-cpu", "--cpus-per-task", "1", "--chdir", "~"]
     widgets:
       - accounting_id
