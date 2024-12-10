@@ -1,5 +1,6 @@
 #!/bin/bash
 
+cd $HOME
 apptainer exec  \
         --fakeroot \
         --bind /srv/beegfs/scratch/users/${USER:0:1}/${USER}:/srv/beegfs/scratch/users/${USER:0:1}/${USER} \
@@ -8,8 +9,3 @@ apptainer exec  \
             <%= context.output_dir %> \
             <%= context.analysis_level %> \
             --participant-label <%= context.participant_label %> \
-  
-
-
-
-  
