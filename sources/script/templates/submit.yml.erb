@@ -1,6 +1,5 @@
 batch_connect:
   template: "basic"
-  work_dir: ~/
 script:
 {%- for widget in application.slurm.widgets %}
   {%- if widget == "accounting_id" %}
