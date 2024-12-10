@@ -9,6 +9,7 @@ script:
   {%- else %}
   {{ item_name }}: <%= {{ item_name }}%>
   {%- endif %}
+  work_dir: ~/
 {%- endfor %}
   native:
 {%- if application.slurm.args %}
