@@ -3,6 +3,6 @@ batch_connect:
 script:
   accounting_id: <%= auto_accounts %>
   native:
-    ['--mem-per-cpu', '3G', '--time', '15', '--partition', 'debug-cpu', '--cpus-per-task', '1', '--chdir', '/srv/beegfs/scratch/users/${USER:0:1}/${USER}']
+    ['--mem-per-cpu', '3G', '--time', '15', '--partition', 'debug-cpu', '--cpus-per-task', '1', '--chdir', '$HOME']
 
 
