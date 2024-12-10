@@ -1,5 +1,6 @@
 #!/bin/bash
 
+cd $HOME
 apptainer exec  \
     {%- if application.apptainer.args %}
         {{ application.apptainer.args }} \
@@ -16,9 +17,3 @@ apptainer exec  \
             {{application.app.arguments[argument_name]["command-line-flag"]}} <%= context.{{argument_name}} %> \
         {%- endif %}
     {%- endfor %}
-  
-
-
-
-  
-
