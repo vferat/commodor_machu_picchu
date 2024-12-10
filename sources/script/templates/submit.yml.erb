@@ -1,5 +1,6 @@
 batch_connect:
   template: "basic"
+  work_dir: ~/
 script:
 {%- for widget in application.slurm.widgets %}
   {%- if widget == "accounting_id" %}
@@ -9,7 +10,6 @@ script:
   {%- else %}
   {{ item_name }}: <%= {{ item_name }}%>
   {%- endif %}
-  work_dir: ~/
 {%- endfor %}
   native:
 {%- if application.slurm.args %}
