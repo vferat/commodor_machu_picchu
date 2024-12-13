@@ -17,3 +17,7 @@ apptainer exec  \
             {{application.app.arguments[argument_name]["command-line-flag"]}} <%= context.{{argument_name}} %> \
         {%- endif %}
     {%- endfor %}
+
+echo "Script ending..."
+exit 0
+
